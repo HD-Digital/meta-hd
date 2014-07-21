@@ -1,6 +1,6 @@
-MACHINE_KERNEL_PR = "r0"
+MACHINE_KERNEL_PR = "r1"
 
-module_autoload_xfs = "xfs"
+KERNEL_MODULE_AUTOLOAD += "xfs"
 
 # We know about rtc
 MACHINE_FEATURES_BACKFILL_CONSIDERED = "rtc"
