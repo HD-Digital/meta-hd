@@ -4,7 +4,7 @@ LICENSE = "GPLv2"
 
 KERNEL_RELEASE = "3.14.2"
 COMPATIBLE_MACHINE = "hd[11,24]+"
-MACHINE_KERNEL_PR_append = ".1"
+MACHINE_KERNEL_PR_append = ".2"
 
 SRC_URI[md5sum] = "7276fcda85e4594c993ea6192cd7df0f"
 SRC_URI[sha256sum] = "72236f0ff51f42496d5d7bae372f4ddc686bc0eb433aa8b6295bbda0558d3e63"
@@ -21,6 +21,7 @@ RPROVIDES_kernel-image = "kernel-image-${KERNEL_VERSION}"
 
 SRC_URI += "http://downloads.mutant-digital.net/linux-${PV}.tar.gz \
 	file://defconfig \
+	file://add-rt2x00-wifi-devices.patch \
 	file://af9015-output-full-range-SNR.patch \
 	file://af9033-output-full-range-SNR.patch \
 	file://cxd2820r-output-full-range-SNR.patch \
