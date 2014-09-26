@@ -1,7 +1,7 @@
 DESCRIPTION = "VFD Control"
 LICENSE = "GPLv2"
 
-require conf/license/hddigital-gplv2.inc
+require conf/license/openpli-gplv2.inc
 
 SRC_URI = "file://__init__.py \
 	file://plugin.py \
