@@ -25,7 +25,7 @@ MACHINE_EXTRA_RRECOMMENDS = " \
 DVBMEDIASINK_CONFIG = "--with-wma --with-wmv --with-pcm --with-dts --with-eac3"
 
 TARGET_ARCH = "mipsel"
-DEFAULTTUNE = "mips32el"
+DEFAULTTUNE ?= "mips32el"
 
 PREFERRED_PROVIDER_virtual/kernel = "linux-hd"
 
