@@ -9,6 +9,14 @@ IMAGE_CMD_ubi_prepend = " \
 	rm -Rf ${IMAGE_ROOTFS}/tmp/*; \
 	"
 
+IMAGE_CMD_tar_prepend = " \
+	gzip -9c ${DEPLOY_DIR_IMAGE}/vmlinux-${MACHINE}.bin > ${IMAGE_ROOTFS}/boot/vmlinux.gz; \
+	echo "LABEL=sdcard" > ${IMAGE_ROOTFS}/boot/boot.cfg; \
+	echo "KERNEL=/boot/vmlinux.gz" >> ${IMAGE_ROOTFS}/boot/boot.cfg; \
+	echo "PRIORITY=10" >> ${IMAGE_ROOTFS}/boot/boot.cfg; \
+	rm -Rf ${IMAGE_ROOTFS}/tmp/*; \
+	"
+
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS = "\
 	hd-dvb-modules-${MACHINE} \
 	"
@@ -32,6 +40,7 @@ PREFERRED_PROVIDER_virtual/kernel = "linux-hd"
 KERNEL_IMAGETYPE = "vmlinux"
 KERNEL_OUTPUT = "${KERNEL_IMAGETYPE}"
 KERNEL_CONSOLE = "null"
+SERIAL_CONSOLE ?= ""
 
 IMAGE_FSTYPES ?= "ubi"
 
