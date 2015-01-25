@@ -1,5 +1,5 @@
 KV = "3.17.3"
-SRCDATE = "20150117"
+SRCDATE = "20150118"
 
 require hd-dvb-modules.inc
 
