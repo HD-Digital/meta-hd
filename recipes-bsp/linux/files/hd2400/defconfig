@@ -2904,7 +2904,7 @@ CONFIG_HAVE_ARCH_KGDB=y
 # CONFIG_KGDB is not set
 # CONFIG_EARLY_PRINTK is not set
 CONFIG_CMDLINE_BOOL=y
-CONFIG_CMDLINE="ubi.mtd=rootfs rootfstype=ubifs root=ubi0:rootfs bmem=192M@64M bmem=320M@512M memc1=768M console=null"
+CONFIG_CMDLINE="ubi.mtd=rootfs rootfstype=ubifs root=ubi0:rootfs bmem=192M@64M bmem=360M@512M memc1=768M console=null"
 # CONFIG_CMDLINE_OVERRIDE is not set
 # CONFIG_RUNTIME_DEBUG is not set
 
