@@ -3,7 +3,7 @@ SECTION = "kernel"
 LICENSE = "GPLv2"
 
 KERNEL_RELEASE = "3.17.3"
-COMPATIBLE_MACHINE = "hd[11,12,24,34]+"
+COMPATIBLE_MACHINE = "hd[11,12,24,34,50]+"
 MACHINE_KERNEL_PR_append = ".0"
 
 SRC_URI[md5sum] = "b0fd34ad64658bf6797c41cca2c7385f"
@@ -31,6 +31,8 @@ SRC_URI += "http://downloads.mutant-digital.net/linux-${PV}.tar.gz \
 	file://mxl5007t-add-no_probe-and-no_reset-parameters.patch \
 	file://tda18271-advertise-supported-delsys.patch \
 	"
+
+SRC_URI_append_hd500c = "file://nand_partition_layout.patch"
 
 inherit kernel machine_kernel_pr
 
