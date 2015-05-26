@@ -26,6 +26,7 @@ IMAGE_CMD_tar_append = "; \
 
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS = "\
 	hd-dvb-modules-${MACHINE} \
+	kernel-vmlinux \
 	"
 
 MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS = "\
