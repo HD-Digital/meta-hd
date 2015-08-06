@@ -6,14 +6,18 @@ KERNEL_MODULE_AUTOLOAD += "xfs"
 MACHINE_FEATURES_BACKFILL_CONSIDERED = "rtc"
 
 IMAGE_CMD_ubi_prepend = " \
+	rm -Rf ${DEPLOY_DIR_IMAGE}/boot; \
+	mkdir ${DEPLOY_DIR_IMAGE}/boot; \
+	echo "LABEL=${DISTRO_NAME}${DISTRO_VERSION}" > ${DEPLOY_DIR_IMAGE}/boot/boot.cfg; \
+	echo "KERNEL=/boot/vmlinux.gz" >> ${DEPLOY_DIR_IMAGE}/boot/boot.cfg; \
+	echo "PRIORITY=100" >> ${DEPLOY_DIR_IMAGE}/boot/boot.cfg; \
 	rm -Rf ${IMAGE_ROOTFS}/tmp/*; \
 	"
 
 IMAGE_CMD_tar_prepend = " \
 	rm -Rf ${DEPLOY_DIR_IMAGE}/boot; \
 	mkdir ${DEPLOY_DIR_IMAGE}/boot; \
-	gzip -9c ${DEPLOY_DIR_IMAGE}/vmlinux-${MACHINE}.bin > ${DEPLOY_DIR_IMAGE}/boot/vmlinux.gz; \
-	echo "LABEL=sdcard" > ${DEPLOY_DIR_IMAGE}/boot/boot.cfg; \
+	echo "LABEL=${DISTRO_NAME}${DISTRO_VERSION} sdcard" > ${DEPLOY_DIR_IMAGE}/boot/boot.cfg; \
 	echo "KERNEL=/boot/vmlinux.gz" >> ${DEPLOY_DIR_IMAGE}/boot/boot.cfg; \
 	echo "PRIORITY=10" >> ${DEPLOY_DIR_IMAGE}/boot/boot.cfg; \
 	rm -Rf ${IMAGE_ROOTFS}/tmp/*; \
@@ -65,6 +69,7 @@ IMAGE_CMD_ubi_append = " \
 	cd ${DEPLOY_DIR_IMAGE}; \
 	zip ${DISTRO_NAME}-${DISTRO_VERSION}-${MACHINE}_usb.zip ${IMAGEDIR}/*; \
 	rm -Rf ${IMAGEDIR}; \
+	rm -Rf ${DEPLOY_DIR_IMAGE}/boot; \
 	"
 
 MACHINE_FEATURES += "alsa usbhost wlan 3dtv switchoff osdposition hdmicec"
