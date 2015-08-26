@@ -4,7 +4,7 @@ LICENSE = "GPLv2"
 
 KERNEL_RELEASE = "4.0.1"
 COMPATIBLE_MACHINE = "hd[11,12,24,34,50]+"
-MACHINE_KERNEL_PR_append = ".0"
+MACHINE_KERNEL_PR_append = ".1"
 
 SRC_URI[md5sum] = "c274792d088cd7bbfe7fe5a76bd798d8"
 SRC_URI[sha256sum] = "6fd63aedd69b3b3b28554cabf71a9efcf05f10758db3d5b99cfb0580e3cde24c"
@@ -23,6 +23,7 @@ SRC_URI += "http://downloads.mutant-digital.net/linux-${PV}.tar.gz \
 	file://defconfig \
 	file://add-dmx-source-timecode.patch \
 	file://iosched-slice_idle-1.patch \
+	file://0001-bcmgenet.patch \
 	"
 
 inherit kernel machine_kernel_pr
