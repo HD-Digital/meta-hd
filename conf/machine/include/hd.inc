@@ -1,4 +1,4 @@
-MACHINE_KERNEL_PR = "r1"
+MACHINE_KERNEL_PR = "r2"
 
 KERNEL_MODULE_AUTOLOAD += "xfs"
 
@@ -12,20 +12,6 @@ IMAGE_CMD_ubi_prepend = " \
 	echo "KERNEL=/boot/vmlinux.gz" >> ${DEPLOY_DIR_IMAGE}/boot/boot.cfg; \
 	echo "PRIORITY=100" >> ${DEPLOY_DIR_IMAGE}/boot/boot.cfg; \
 	rm -Rf ${IMAGE_ROOTFS}/tmp/*; \
-	"
-
-IMAGE_CMD_tar_prepend = " \
-	rm -Rf ${DEPLOY_DIR_IMAGE}/boot; \
-	mkdir ${DEPLOY_DIR_IMAGE}/boot; \
-	echo "LABEL=${DISTRO_NAME}${DISTRO_VERSION} sdcard" > ${DEPLOY_DIR_IMAGE}/boot/boot.cfg; \
-	echo "KERNEL=/boot/vmlinux.gz" >> ${DEPLOY_DIR_IMAGE}/boot/boot.cfg; \
-	echo "PRIORITY=10" >> ${DEPLOY_DIR_IMAGE}/boot/boot.cfg; \
-	rm -Rf ${IMAGE_ROOTFS}/tmp/*; \
-	"
-
-IMAGE_CMD_tar_append = "; \
-	tar -rf ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.tar -C ${DEPLOY_DIR_IMAGE} boot; \
-	rm -Rf ${DEPLOY_DIR_IMAGE}/boot; \
 	"
 
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS = "\
