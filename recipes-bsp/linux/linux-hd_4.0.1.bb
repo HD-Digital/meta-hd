@@ -26,6 +26,7 @@ SRC_URI += "http://downloads.mutant-digital.net/linux-${PV}.tar.gz \
 	file://0001-bcmgenet.patch \
 	file://0002-add-brcm-chips.patch \
 	file://0003-fix-cpu-probe-disable-RIXIEX-check-on-BCM7584.patch \
+	file://kernel-gcc6.patch \
 	"
 
 inherit kernel machine_kernel_pr
