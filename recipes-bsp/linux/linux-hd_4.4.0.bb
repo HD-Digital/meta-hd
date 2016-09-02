@@ -22,6 +22,7 @@ RPROVIDES_kernel-image = "kernel-image-${KERNEL_VERSION}"
 SRC_URI += "http://downloads.mutant-digital.net/linux-${PV}.tar.gz \
 	file://reserve_dvb_adapter_0.patch \
 	file://defconfig \
+	file://findkerneldevice.py \ 
 	"
 
 inherit kernel machine_kernel_pr
