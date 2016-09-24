@@ -1,4 +1,4 @@
-MACHINE_KERNEL_PR = "r2"
+MACHINE_KERNEL_PR = "r0"
 
 KERNEL_MODULE_AUTOLOAD += "xfs"
 
@@ -20,8 +20,6 @@ MACHINE_EXTRA_RRECOMMENDS = " \
 	"
 
 DVBMEDIASINK_CONFIG = "--with-wma --with-wmv --with-pcm --with-dts --with-eac3"
-
-PREFERRED_PROVIDER_virtual/kernel = "linux-hd"
 
 IMAGEDIR ?= "${MACHINE}"
 

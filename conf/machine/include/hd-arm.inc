@@ -9,6 +9,8 @@ IMAGE_ROOTFS_SIZE ?= "196608"
 TARGET_ARCH = "arm"
 DEFAULTTUNE = "armv7ahf-neon"
 
+PREFERRED_PROVIDER_virtual/kernel = "linux-hd"
+
 IMAGE_CMD_hd-emmc_append = "\
 	mkdir -p ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}; \
 	cp ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.emmc.img ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}/disk.img; \
