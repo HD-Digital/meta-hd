@@ -11,10 +11,13 @@ DEFAULTTUNE = "armv7ahf-neon"
 
 PREFERRED_PROVIDER_virtual/kernel = "linux-hd"
 
+IMAGEVERSION := "${DISTRO_NAME}-${DISTRO_VERSION}-${DATE}"
+IMAGEVERSION[vardepsexclude] = "DATE"
+
 IMAGE_CMD_hd-emmc_append = "\
 	mkdir -p ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}; \
 	cp ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.emmc.img ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}/disk.img; \
-	echo ${DISTRO_NAME}-${DISTRO_VERSION}-${DATE} > ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}/imageversion; \
+	echo "${IMAGEVERSION}" > ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}/imageversion; \
 	cd ${DEPLOY_DIR_IMAGE}; \
 	zip ${DISTRO_NAME}-${DISTRO_VERSION}-${MACHINE}_usb.zip ${IMAGEDIR}/*; \
 	rm -Rf ${IMAGEDIR}; \
