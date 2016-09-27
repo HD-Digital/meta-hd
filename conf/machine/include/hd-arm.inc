@@ -1,5 +1,3 @@
-PREFERRED_VERSION_linux-hd = "4.4.0"
-
 DVBMEDIASINK_CONFIG += "--with-h265 --with-vb8 --with-vb9 --with-opus"
 
 IMAGE_CLASSES += "hd-emmc_image_single"
@@ -9,7 +7,7 @@ IMAGE_ROOTFS_SIZE ?= "196608"
 TARGET_ARCH = "arm"
 DEFAULTTUNE = "armv7ahf-neon"
 
-PREFERRED_PROVIDER_virtual/kernel = "linux-hd"
+PREFERRED_PROVIDER_virtual/kernel = "linux-hd4k"
 
 IMAGE_CMD_hd-emmc_append = "\
 	mkdir -p ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}; \
