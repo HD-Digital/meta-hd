@@ -10,23 +10,23 @@ IMAGEVERSION := "${DISTRO_NAME}-${DISTRO_VERSION}-${DATE}"
 IMAGEVERSION[vardepsexclude] = "DATE"
 
 IMAGE_CMD_ubi_append = " \
-	mkdir -p ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}; \
-	cp ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.ubi ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}/rootfs.bin; \
-	gzip -9c ${DEPLOY_DIR_IMAGE}/vmlinux-${MACHINE}.bin > ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}/kernel.bin; \
-	echo "${IMAGEVERSION}" > ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}/imageversion; \
-	echo "rename this file to 'force' to force an update without confirmation" > ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}/noforce; \
-	cd ${DEPLOY_DIR_IMAGE}; \
+	mkdir -p ${IMGDEPLOYDIR}/${IMAGEDIR}; \
+	cp ${IMGDEPLOYDIR}/${IMAGE_NAME}.rootfs.ubi ${IMGDEPLOYDIR}/${IMAGEDIR}/rootfs.bin; \
+	gzip -9c ${IMGDEPLOYDIR}/vmlinux-${MACHINE}.bin > ${IMGDEPLOYDIR}/${IMAGEDIR}/kernel.bin; \
+	echo "${IMAGEVERSION}" > ${IMGDEPLOYDIR}/${IMAGEDIR}/imageversion; \
+	echo "rename this file to 'force' to force an update without confirmation" > ${IMGDEPLOYDIR}/${IMAGEDIR}/noforce; \
+	cd ${IMGDEPLOYDIR}; \
 	zip ${DISTRO_NAME}-${DISTRO_VERSION}-${MACHINE}_usb.zip ${IMAGEDIR}/*; \
 	rm -Rf ${IMAGEDIR}; \
-	rm -Rf ${DEPLOY_DIR_IMAGE}/boot; \
+	rm -Rf ${IMGDEPLOYDIR}/boot; \
 	"
 
 IMAGE_CMD_ubi_prepend = " \
-	rm -Rf ${DEPLOY_DIR_IMAGE}/boot; \
-	mkdir ${DEPLOY_DIR_IMAGE}/boot; \
-	echo "LABEL=${DISTRO_NAME}${DISTRO_VERSION}" > ${DEPLOY_DIR_IMAGE}/boot/boot.cfg; \
-	echo "KERNEL=/boot/vmlinux.gz" >> ${DEPLOY_DIR_IMAGE}/boot/boot.cfg; \
-	echo "PRIORITY=100" >> ${DEPLOY_DIR_IMAGE}/boot/boot.cfg; \
+	rm -Rf ${IMGDEPLOYDIR}/boot; \
+	mkdir ${IMGDEPLOYDIR}/boot; \
+	echo "LABEL=${DISTRO_NAME}${DISTRO_VERSION}" > ${IMGDEPLOYDIR}/boot/boot.cfg; \
+	echo "KERNEL=/boot/vmlinux.gz" >> ${IMGDEPLOYDIR}/boot/boot.cfg; \
+	echo "PRIORITY=100" >> ${IMGDEPLOYDIR}/boot/boot.cfg; \
 	rm -Rf ${IMAGE_ROOTFS}/tmp/*; \
 	"
 

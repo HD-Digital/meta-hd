@@ -1,4 +1,4 @@
-MACHINE_KERNEL_PR = "r0"
+MACHINE_KERNEL_PR = "r1"
 
 KERNEL_MODULE_AUTOLOAD += "xfs"
 
@@ -22,6 +22,7 @@ MACHINE_EXTRA_RRECOMMENDS = " \
 DVBMEDIASINK_CONFIG = "--with-wma --with-wmv --with-pcm --with-dts --with-eac3"
 
 IMAGEDIR ?= "${MACHINE}"
+IMGDEPLOYDIR ?= "${DEPLOY_DIR_IMAGE}"
 
 MACHINE_FEATURES += "alsa usbhost wlan 3dtv switchoff osdposition hdmicec"
 

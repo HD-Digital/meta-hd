@@ -13,21 +13,21 @@ IMAGEVERSION := "${DISTRO_NAME}-${DISTRO_VERSION}-${DATE}"
 IMAGEVERSION[vardepsexclude] = "DATE"
 
 IMAGE_CMD_hd-emmc_append = "\
-	mkdir -p ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}; \
-	cp ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.emmc.img ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}/disk.img; \
-	echo "${IMAGEVERSION}" > ${DEPLOY_DIR_IMAGE}/${IMAGEDIR}/imageversion; \
-	cd ${DEPLOY_DIR_IMAGE}; \
+	mkdir -p ${IMGDEPLOYDIR}/${IMAGEDIR}; \
+	cp ${IMGDEPLOYDIR}/${IMAGE_NAME}.emmc.img ${IMGDEPLOYDIR}/${IMAGEDIR}/disk.img; \
+	echo "${IMAGEVERSION}" > ${IMGDEPLOYDIR}/${IMAGEDIR}/imageversion; \
+	cd ${IMGDEPLOYDIR}; \
 	zip ${DISTRO_NAME}-${DISTRO_VERSION}-${MACHINE}_usb.zip ${IMAGEDIR}/*; \
 	rm -Rf ${IMAGEDIR}; \
-	rm -Rf ${DEPLOY_DIR_IMAGE}/boot; \
+	rm -Rf ${IMGDEPLOYDIR}/boot; \
 	"
 
 IMAGE_CMD_hd_emmc_prepend = " \
-	rm -Rf ${DEPLOY_DIR_IMAGE}/boot; \
-	mkdir ${DEPLOY_DIR_IMAGE}/boot; \
-	echo "LABEL=${DISTRO_NAME}${DISTRO_VERSION}" > ${DEPLOY_DIR_IMAGE}/boot/boot.cfg; \
-	echo "KERNEL=/boot/kernel.bin" >> ${DEPLOY_DIR_IMAGE}/boot/boot.cfg; \
-	echo "PRIORITY=100" >> ${DEPLOY_DIR_IMAGE}/boot/boot.cfg; \
+	rm -Rf ${IMGDEPLOYDIR}/boot; \
+	mkdir ${IMGDEPLOYDIR}/boot; \
+	echo "LABEL=${DISTRO_NAME}${DISTRO_VERSION}" > ${IMGDEPLOYDIR}/boot/boot.cfg; \
+	echo "KERNEL=/boot/kernel.bin" >> ${IMGDEPLOYDIR}/boot/boot.cfg; \
+	echo "PRIORITY=100" >> ${IMGDEPLOYDIR}/boot/boot.cfg; \
 	rm -Rf ${IMAGE_ROOTFS}/tmp/*; \
 	"
 
