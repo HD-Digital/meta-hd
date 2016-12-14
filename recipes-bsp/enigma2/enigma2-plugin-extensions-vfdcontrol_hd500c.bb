@@ -12,7 +12,7 @@ SRC_URI = "file://__init__.py \
 S = "${WORKDIR}"
 DEST = "${D}/usr/lib/enigma2/python/Plugins/Extensions/VfdControl"
 
-PR = "r1"
+PR = "r2"
 
 FILES_${PN} = "/usr/lib/enigma2/python/Plugins/Extensions/VfdControl"
 
