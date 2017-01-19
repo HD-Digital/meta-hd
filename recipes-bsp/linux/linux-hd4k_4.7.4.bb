@@ -3,7 +3,7 @@ SECTION = "kernel"
 LICENSE = "GPLv2"
 
 KERNEL_RELEASE = "4.7.4"
-COMPATIBLE_MACHINE = "hd+"
+COMPATIBLE_MACHINE = "hd+|vs+"
 MACHINE_KERNEL_PR_append = ".0"
 
 SRC_URI[md5sum] = "ab37f1c0c601a6bfd2d35dc356b40f0e"

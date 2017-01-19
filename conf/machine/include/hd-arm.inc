@@ -5,7 +5,7 @@ IMAGE_FSTYPES += "hd-emmc"
 IMAGE_ROOTFS_SIZE ?= "196608"
 
 TARGET_ARCH = "arm"
-DEFAULTTUNE = "armv7ahf-neon"
+DEFAULTTUNE ?= "armv7ahf-neon"
 
 PREFERRED_PROVIDER_virtual/kernel = "linux-hd4k"
 
