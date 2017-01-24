@@ -1,3 +1,6 @@
+require conf/machine/include/arm/arch-armv7a.inc
+require conf/machine/include/hd.inc
+
 DVBMEDIASINK_CONFIG += "--with-h265 --with-vb8 --with-vb9 --with-opus"
 
 IMAGE_CLASSES += "hd-emmc_image_multi"
@@ -31,5 +34,3 @@ IMAGE_CMD_hd_emmc_prepend = " \
 	rm -Rf ${IMAGE_ROOTFS}/tmp/*; \
 	"
 
-require conf/machine/include/arm/arch-armv7a.inc
-require conf/machine/include/hd.inc
