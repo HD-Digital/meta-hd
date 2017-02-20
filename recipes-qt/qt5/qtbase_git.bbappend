@@ -1,1 +1,0 @@
-PACKAGECONFIG_GL_pn-qtbase_arm = "gles2 eglfs"

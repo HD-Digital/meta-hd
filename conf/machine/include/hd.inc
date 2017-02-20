@@ -9,6 +9,8 @@ PREFERRED_PROVIDER_virtual/libgles2 = "v3d-libgles-${MACHINE}"
 PREFERRED_PROVIDER_virtual/kernel_mipsel = "linux-hd"
 PREFERRED_PROVIDER_virtual/kernel_arm = "linux-hd4k"
 
+PACKAGECONFIG_GL_pn-qtbase_arm = "gles2 eglfs"
+
 IMAGEVERSION := "${DISTRO_NAME}-${DISTRO_VERSION}-${DATE}"
 IMAGEVERSION[vardepsexclude] = "DATE"
 
