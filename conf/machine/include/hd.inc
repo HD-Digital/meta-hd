@@ -31,9 +31,10 @@ MACHINE_FEATURES += "alsa usbhost wlan 3dtv switchoff osdposition hdmicec"
 
 DVBMEDIASINK_CONFIG_arm = "--with-h265 --with-vb8 --with-vb9 --with-opus --with-wma --with-wmv --with-pcm --with-dts --with-eac3"
 DVBMEDIASINK_CONFIG_mipsel = "--with-wma --with-wmv --with-pcm --with-dts --with-eac3 \
+	${@bb.utils.contains('MACHINE', 'hd11', '--with-h265 --with-vb6 --with-vb8 --with-spark' , '', d)} \
 	${@bb.utils.contains('MACHINE', 'hd1265', '--with-h265 --with-vb6 --with-vb8 --with-spark' , '', d)} \
 	${@bb.utils.contains('MACHINE', 'hd1500', '--with-h265 --with-vb6 --with-vb8 --with-spark' , '', d)} \
-	${@bb.utils.contains('MACHINE', 'hd11', '--with-h265 --with-vb6 --with-vb8 --with-spark' , '', d)} \
+	${@bb.utils.contains('MACHINE', 'hd530c', '--with-h265 --with-vb6 --with-vb8 --with-spark' , '', d)} \
 	${@bb.utils.contains('MACHINE', 'vs1000', '--with-h265 --with-vb6 --with-vb8 --with-spark' , '', d)} \
 	"
 
